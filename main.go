@@ -114,10 +114,11 @@ func getDigits(num int) []int {
 
 func composeNumbers(nums []int) image.Image{
 	src := image.NewRGBA(image.Rect(0, 0, 100 * (len(nums)), 100))
-	for i:=0;i<len(nums);i++{
+	for i:=len(nums)-1;i>-1;i--{
+		j:=len(nums)-1-i
 		fmt.Println("Drawing "+strconv.Itoa(nums[i]))
 		im:=getNumber(nums[i])
-		draw.Draw(src, image.Rect(i*100,0,i*100+100,100), im, image.ZP, draw.Over)
+		draw.Draw(src, image.Rect(j*100,0,(j*100)+100,100), im, image.ZP, draw.Over)
 
 	}
 	return src
