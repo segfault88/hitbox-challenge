@@ -33,7 +33,6 @@ func get(w http.ResponseWriter, r *http.Request) {
 	key := parts[len(parts)-1]
 
 	count := getCount(key)
-	_ = count
 
 	w.Header().Add("Content-Type", "image/png")
 
@@ -89,7 +88,7 @@ func getCount(key string) int {
 }
 
 func main() {
-	data, err := os.Open("numbers.png")
+	data, err := os.Open("images/numbers.png")
 	if err != nil {
 		panic(err)
 	}
